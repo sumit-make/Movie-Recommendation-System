@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Recommendation Engine</title>
+  
 </head>
 <body>
 
@@ -214,11 +214,10 @@ Add your project screenshots here.
 </p>
 
 <pre>
-screenshots/
-│
-├── home.png
-├── recommendations.png
-└── movie-posters.png
+
+    <img width="854" height="970" alt="Screenshot 2026-05-23 151042" src="https://github.com/user-attachments/assets/71306625-d1ea-42a5-bccd-2b279a83f850" />
+    <img width="746" height="952" alt="Screenshot 2026-05-23 151129" src="https://github.com/user-attachments/assets/d86ae775-cc35-49e6-9f7a-f993d6d99141" />
+
 </pre>
 
 <hr>
