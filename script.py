@@ -151,4 +151,3 @@ if st.button("Get Recommendations"):
             )
             if rec_posters[idx]:
                 st.image(rec_posters[idx], use_container_width=True)
-
