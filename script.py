@@ -4,22 +4,20 @@ import pandas as pd
 import time
 import requests
 
-# ----------------- Page Config -----------------
+
 st.set_page_config(
     page_title="Movie Reco",
     page_icon="🎬",
     layout="centered"
 )
 
-# ----------------- CSS (UNCHANGED) -----------------
 st.markdown("""
 <style>
-/* ---------- Page Background ---------- */
 .main {
     background: radial-gradient(circle at top, #1b1b2f, #0f0f0f 70%);
 }
 
-/* ---------- Animations ---------- */
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -36,7 +34,6 @@ st.markdown("""
     100% { box-shadow: 0 0 15px rgba(255, 75, 75, 0.4); }
 }
 
-/* ---------- Title ---------- */
 .title {
     text-align: center;
     font-size: 3rem;
@@ -47,10 +44,9 @@ st.markdown("""
     margin-bottom: 30px;
 }
 
-/* ---------- Movie Card (Same Size) ---------- */
 .movie-card {
     background: linear-gradient(145deg, #2a2a40, #1c1c2b);
-    height: 90px;                     /* SAME HEIGHT */
+    height: 90px;                     
     display: flex;
     align-items: center;
     justify-content: center;
@@ -65,12 +61,10 @@ st.markdown("""
     overflow: hidden;
 }
 
-/* ---------- Long Title Handling ---------- */
 .movie-card {
     word-break: break-word;
 }
 
-/* ---------- Button ---------- */
 .stButton > button {
     background: linear-gradient(90deg, #ff512f, #dd2476);
     color: white;
@@ -83,7 +77,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# ----------------- TMDB Poster Fetch -----------------
+
 API_KEY = "4cc2036661282ae0420d3c5a68a853cf"
 
 def fetch_poster(movie_id):
@@ -103,7 +97,6 @@ def fetch_poster(movie_id):
         return None
 
 
-# ----------------- Recommendation Logic -----------------
 def rec(movie):
     mi = ml[ml['title'] == movie].index[0]
     dis = similarity[mi]
@@ -119,15 +112,11 @@ def rec(movie):
 
     return rec_movies, rec_posters
 
-# ----------------- Load Data -----------------
 ml_dict = pickle.load(open('movie_dict.pkl', 'rb'))
 ml = pd.DataFrame(ml_dict)
 
 similarity = pickle.load(open('similarity.pkl', 'rb'))
-
-# ----------------- UI -----------------
 st.markdown("<div class='title'>Movie Recommendation Engine</div>", unsafe_allow_html=True)
-
 option = st.selectbox(
     "Pick a movie you love",
     ml['title'].values
